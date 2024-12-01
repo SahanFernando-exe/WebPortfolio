@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Prime';
+    src: url("../fonts/Prime/Prime.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Noplato';
+    src: url("../fonts/Noplato.ttf") format('truetype');
+}
+
+:root {
+    --base-col: #fff8f0;
+    --high-col: #f0b080;
+    --base-text: #202040;
+    --high-text: #a0a0f0;
+    --amethyst: #804080;
+}
+
+button {
+    margin: 8px;
+    padding: 5px;
+    transition: 0.2s;
+    border-color: var(--high-col);
+    background-color: var(--base-col);
+}
+button:hover {
+    margin: 5px;
+    padding: 8px;
+    transition: 0.1s;
+    background-color: var(--high-col);
+}
+
+.profile-picture {
+    transition: 0.5s;
+    border: 5px solid var(--high-col);
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1;
+    box-sizing: border-box;
+}
+.profile-picture:hover {
+    transition: 0.5s;
+    background-color: var(--high-col);
+}
+
+.profile-section {
+    padding: 20px;
+}
+
+.quote-section {
+    font-family: 'Noplato', sans-serif;
+}
+
+.summary-section {
+    font-family: 'Prime', sans-serif;
+}
+
+
+.page-container {
+    background-color: var(--base-col);
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+
+/* Mobile Layout */
+@media screen and (max-width: 730px) {
+    .page-container {
+        grid-template-areas: 
+            "profile"
+            "quote"
+            "summary";
+    }
+    .profile-section { grid-area: profile; }
+    .quote-section   { grid-area: quote; }
+    .contact-section { display: none; }
+    .summary-section { grid-area: summary; }
+}
+  
+/* Small Desktop Layout */
+@media screen and (min-width: 731px) and (max-width: 1000px) {
+    .page-container {
+        grid-template-areas: 
+            "profile quote contacts"
+            "summary summary summary";
+        grid-template-columns: 250px 1fr 150px;
+    }
+    .profile-section { grid-area: profile; }
+    .quote-section   { grid-area: quote; }
+    .contact-section { grid-area: contacts; }
+    .summary-section { grid-area: summary; }
+
+
+    .quote-section {
+        font-size: 12px;
+    }
+
+    .summary-section {
+        text-align: center;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+  /* Full Desktop Layout */
+@media screen and (min-width: 1001px) {
+    .page-container {
+        grid-template-areas: 
+            "profile quote contacts"
+            "profile summary contacts";
+        grid-template-columns: 400px 1fr 100px;
+    }
+    .profile-section { grid-area: profile; }
+    .quote-section   { grid-area: quote; }
+    .contact-section { grid-area: contacts; }
+    .summary-section { grid-area: summary; }
+}
